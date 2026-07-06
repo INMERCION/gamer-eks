@@ -1,0 +1,46 @@
+services:
+  tienda-db:  
+    build:
+      context: ./db
+    environment:
+      MYSQL_ROOT_PASSWORD: admin123
+      MYSQL_DATABASE: tienda_perritos
+      MYSQL_USER: alumno
+      MYSQL_PASSWORD: alumno123
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-padmin123"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+
+  tienda-backend:  
+    build:
+      context: ./backend
+    depends_on:
+      tienda-db:  
+        condition: service_healthy
+    environment:
+      PORT: 3001
+      DB_HOST: tienda-db
+      DB_USER: root
+      DB_PASSWORD: admin123
+      DB_NAME: tienda_perritos
+      DB_PORT: 3306
+    ports:
+      - "3001:3001"
+
+  tienda-frontend:
+    build:
+      context: ./frontend
+    depends_on:
+      - tienda-backend  
+    ports:
+      - "8080:80"
+
+volumes:
+  mysql-data:

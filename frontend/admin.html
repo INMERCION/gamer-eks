@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestion de Productos | Tienda Gamer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Orbitron:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="admin-body">
+  <header class="subhero">
+    <nav class="topbar">
+      <a class="brand" href="/">Tienda Gamer</a>
+      <a class="nav-link" href="/">Volver al catalogo</a>
+    </nav>
+
+    <div class="subhero-inner">
+      <div>
+        <p class="eyebrow">Pantalla de gestion</p>
+        <h1>Administra productos, stock y precios</h1>
+        <p class="hero-copy">Aqui queda el CRUD completo para crear, editar y eliminar productos sin mezclarlo con la home del catalogo gamer.</p>
+      </div>
+      <button id="btnCargar" class="btn-primary" type="button">Recargar tabla</button>
+    </div>
+  </header>
+
+  <main class="page-shell admin-layout">
+    <section class="panel panel-wide">
+      <div class="panel-heading">
+        <div>
+          <p class="section-label">Inventario</p>
+          <h2>Listado de productos</h2>
+        </div>
+        <div id="status" class="status"></div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Descripcion</th>
+              <th>Precio</th>
+              <th>Stock</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tbodyProductos"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel panel-form">
+      <div class="panel-heading compact">
+        <div>
+          <p class="section-label">Formulario</p>
+          <h2 id="formTitle">Nuevo producto</h2>
+        </div>
+      </div>
+
+      <div class="form-grid">
+        <div>
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" placeholder="Ej: Teclado mecanico RGB" />
+        </div>
+        <div>
+          <label for="descripcion">Descripcion</label>
+          <textarea id="descripcion" rows="4" placeholder="Ej: Switches red, layout TKL y RGB"></textarea>
+        </div>
+        <div>
+          <label for="precio">Precio</label>
+          <input type="number" id="precio" step="0.01" min="0" placeholder="Ej: 39990" />
+        </div>
+        <div>
+          <label for="stock">Stock</label>
+          <input type="number" id="stock" min="0" placeholder="Ej: 10" />
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button id="btnGuardar" class="btn-primary" type="button">Guardar</button>
+        <button id="btnCancelar" class="btn-secondary" type="button">Cancelar</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

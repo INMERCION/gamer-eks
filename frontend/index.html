@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tienda Gamer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Orbitron:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <nav class="topbar">
+      <a class="brand" href="/">Tienda Gamer</a>
+      <a class="nav-link" href="/admin.html">Panel de gestion</a>
+    </nav>
+
+    <div class="hero-inner">
+      <div>
+        <p class="eyebrow">Perifericos, audio y setups listos para ranked</p>
+        <h1>Equipa tu setup con una vitrina gamer mas potente</h1>
+        <p class="hero-copy">
+          Explora el catalogo principal en formato cards con una identidad visual gamer y deja la administracion del inventario en una pantalla separada.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section class="section-heading">
+      <div>
+        <p class="section-label">Vista principal</p>
+        <h2>Productos gamer disponibles</h2>
+      </div>
+      <div id="catalogStatus" class="status"></div>
+    </section>
+
+    <section id="cardsProductos" class="product-grid" aria-live="polite"></section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
