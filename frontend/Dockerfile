@@ -1,13 +1,21 @@
-FROM nginx:alpine
+FROM alpine:3.20 AS assets
+WORKDIR /site
+
+COPY index.html ./
+COPY admin.html ./
+COPY app.js ./
+COPY styles.css ./
+
+FROM nginx:alpine AS runtime
 
 # Copiar configuracion de NGINX
 COPY default.conf /etc/nginx/conf.d/default.conf
 
-# Copiar archivos estaticos
-COPY index.html /usr/share/nginx/html/
-COPY admin.html /usr/share/nginx/html/
-COPY app.js /usr/share/nginx/html/
-COPY styles.css /usr/share/nginx/html/
+# Copiar archivos estaticos desde la etapa de armado
+COPY --from=assets /site/index.html /usr/share/nginx/html/
+COPY --from=assets /site/admin.html /usr/share/nginx/html/
+COPY --from=assets /site/app.js /usr/share/nginx/html/
+COPY --from=assets /site/styles.css /usr/share/nginx/html/
 
 EXPOSE 80
 
