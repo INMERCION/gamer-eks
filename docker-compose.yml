@@ -4,7 +4,7 @@ services:
       context: ./db
     environment:
       MYSQL_ROOT_PASSWORD: admin123
-      MYSQL_DATABASE: tienda_perritos
+      MYSQL_DATABASE: tienda_gamer
       MYSQL_USER: alumno
       MYSQL_PASSWORD: alumno123
     ports:
@@ -29,7 +29,7 @@ services:
       DB_HOST: tienda-db
       DB_USER: root
       DB_PASSWORD: admin123
-      DB_NAME: tienda_perritos
+      DB_NAME: tienda_gamer
       DB_PORT: 3306
     ports:
       - "3001:3001"
