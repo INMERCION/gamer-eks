@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS tienda_perritos;
-USE tienda_perritos;
+CREATE DATABASE IF NOT EXISTS tienda_gamer;
+USE tienda_gamer;
 
 CREATE TABLE IF NOT EXISTS productos (
     id INT AUTO_INCREMENT PRIMARY KEY,

@@ -9,7 +9,7 @@ const {
   DB_HOST = "tienda-db", // acá resuelve internamente en eks
   DB_USER = "root",
   DB_PASSWORD = "admin123",
-  DB_NAME = "tienda_perritos",
+  DB_NAME = "tienda_gamer",
   DB_PORT = 3306,
 } = process.env;
 
