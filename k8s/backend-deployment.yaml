@@ -29,7 +29,7 @@ spec:
                   name: mysql-secret
                   key: MYSQL_ROOT_PASSWORD
             - name: DB_NAME
-              value: "tienda_perritos"
+              value: "tienda_gamer"
             - name: DB_PORT
               value: "3306"
 
